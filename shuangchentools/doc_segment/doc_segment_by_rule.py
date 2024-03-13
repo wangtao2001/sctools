@@ -1,5 +1,5 @@
 """
-@Author: shhuangchen
+@Author: shuangchen
 @Time：2024/3/12
 @File: doc_segment_by_rule.py
 @Description: 通过规则分割文档

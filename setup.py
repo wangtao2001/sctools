@@ -4,7 +4,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()
 
 setuptools.setup(
-    name='sctools',
+    name='shuangchentools',
     version='0.0.1',
     author='shuangchen',
     author_email='wangtao.cpu@gmail.com',

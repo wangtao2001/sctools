@@ -26,13 +26,16 @@ class SeleniumSpider:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
             'Cookie': cookies
         }
+        self.chrome_path = r'C:\ChromeAutomationProfile'
+        if not os.path.exists(self.chrome_path):
+            os.mkdir(self.chrome_path)
 
     def _get_client_cookies(self) -> None:
         """
         获取客户端的cookies
         :return: None
         """
-        os.system(r'start chrome --remote-debugging-port=9527 --user-data-dir="D:\ChromeAutomationProfile"')
+        os.system(f'start chrome --remote-debugging-port=9527 --user-data-dir="{self.chrome_path}"')
         options = Options()
         options.add_argument('--headless')
         options.add_experimental_option("debuggerAddress", "127.0.0.1:9527")

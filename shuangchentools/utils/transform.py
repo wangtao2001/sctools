@@ -1,7 +1,7 @@
 """
 @Author: shuangchen
 @Time：2024/3/12
-@File: conv.py
+@File: transform.py
 @Description: 各类转换工具函数
 """
 
@@ -60,3 +60,36 @@ def numeral2chinese(number: int) -> str:
         count_0 = chinese.count("零")
         chinese = chinese.replace("零", "", count_0 - 1)
     return chinese
+
+
+def numeral2roman(number: int) -> str:
+    """
+    阿拉伯数字转罗马数字表达
+    :param number: 待转换的数字
+    """
+    num_list = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+    str_list = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+    roman = ''
+    for i in range(len(num_list)):
+        while number >= num_list[i]:
+            number -= num_list[i]
+            roman += str_list[i]
+    return roman
+
+
+def roman2numeral(roman: str) -> int:
+    """
+    罗马数字转阿拉伯数字
+    :param roman: 待转换的数字
+    """
+    define_dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    if roman == '0':
+        return 0
+    else:
+        res = 0
+        for i in range(0, len(roman)):
+            if i == 0 or define_dict[roman[i]] <= define_dict[roman[i - 1]]:
+                res += define_dict[roman[i]]
+            else:
+                res += define_dict[roman[i]] - 2 * define_dict[roman[i - 1]]
+        return res

@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 setuptools.setup(
     name='shuangchentools',
-    version='0.0.1',
+    version='0.0.2',
     author='shuangchen',
     author_email='wangtao.cpu@gmail.com',
     description='encapsulated some commonly used tools',

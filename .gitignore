@@ -42,3 +42,5 @@ yarn.lock
 package-lock.json
 
 test
+
+*.ps1

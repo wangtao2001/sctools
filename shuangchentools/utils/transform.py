@@ -1,11 +1,9 @@
 """
 @Author: shuangchen
-@Time：2024/3/12
+@Time: 2024/3/12
 @File: transform.py
 @Description: 各类转换工具函数
 """
-
-NUMBER_TOO_LONG_ERR_MSG = '数字最大99999'
 
 
 def numeral2chinese(number: int) -> str:
@@ -13,7 +11,8 @@ def numeral2chinese(number: int) -> str:
     阿拉伯数字转中文表达
     :param number: 待转换的数字
     """
-    assert number <= 99999, NUMBER_TOO_LONG_ERR_MSG
+    if number > 99999:
+        raise ValueError('数字最大99999')
     num_dict = {1: '一', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六', 7: '七', 8: '八', 9: '九', 0: '零'}
     digit_dict = {1: '十', 2: '百', 3: '千', 4: '万'}
 

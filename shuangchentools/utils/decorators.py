@@ -1,6 +1,6 @@
 """
 @Author: shuangchen
-@Time：2024/3/25
+@Time: 2024/3/25
 @File: decorators.py
 @Description: 常用装饰器
 """

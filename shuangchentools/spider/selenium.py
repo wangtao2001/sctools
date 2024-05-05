@@ -65,7 +65,7 @@ class SeleniumSpider:
         else:
             if r.status_code == 412 or r.status_code == 202:
                 self._get_client_cookies()
-                raise
+                self.get_html(url)
             elif r.status_code == 404 or r.status_code == 500:
                 raise PageNotFound('网页不存在: ' + url)
             r.encoding = 'utf-8'

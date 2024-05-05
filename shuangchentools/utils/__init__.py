@@ -1,3 +1,3 @@
 __all__ = [
-    'transform', 'decorators'
+    'transform', 'decorators', 'file', 'command'
 ]

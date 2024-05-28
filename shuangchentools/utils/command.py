@@ -22,7 +22,7 @@ class Command:
     args: Optional[list[str]] = None
 
 
-async def __run_cpp_program(command: Command):
+async def __run_program(command: Command):
     """
     异步运行程序
     :param command: 命令/程序
@@ -43,7 +43,7 @@ async def __run_cpp_program(command: Command):
 async def __main(commands: list[Command]):
     tasks = []
     for command in range(commands):
-        tasks.append(asyncio.create_task(__run_cpp_program(command)))
+        tasks.append(asyncio.create_task(__run_program(command)))
     await asyncio.gather(*tasks)
 
 

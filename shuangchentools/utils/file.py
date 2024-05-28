@@ -15,7 +15,7 @@ def clear_directory(directory: str, sub_directory: bool = True) -> None:
     :param sub_directory: 是否清除子文件夹
     """
     if sub_directory:
-        shutil.rmtree(sub_directory)
+        shutil.rmtree(directory)
     else:
         for root, dirs, files in os.walk(directory):
             for file in files:
@@ -23,7 +23,7 @@ def clear_directory(directory: str, sub_directory: bool = True) -> None:
                 os.remove(file_path)
 
 
-def read_last_n_lines(filename: str, n: int):
+def read_last_n_lines(filename: str, n: int) -> list[str]:
     """
     读取文件最后n行
     :param filename: 文件名
@@ -39,7 +39,7 @@ def read_last_n_lines(filename: str, n: int):
     return lines
 
 
-def read_first_n_lines(filename: str, n: int):
+def read_first_n_lines(filename: str, n: int) -> list[str]:
     """
     读取文件前n行
     :param filename: 文件名
@@ -52,3 +52,15 @@ def read_first_n_lines(filename: str, n: int):
             if i + 1 == n:
                 break
     return lines
+
+def copy_file_to_directory(src_file_path: str, dest_dir_path: str) -> None:
+    """
+    复制文件到指定目录
+    :param src_file_path: 源文件的完整路径
+    :param dest_dir_path: 目标目录的完整路径
+    """
+    if not dest_dir_path.endswith(os.sep):
+        dest_dir_path += os.sep
+    dest_file_path = os.path.join(dest_dir_path, os.path.basename(src_file_path))
+    
+    shutil.copy2(src_file_path, dest_file_path)
